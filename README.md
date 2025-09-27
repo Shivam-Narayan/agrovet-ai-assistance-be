@@ -4,7 +4,7 @@
 ### Create Empty folder in you are local system
 
 ## Create a virtual environment inside the empty folder (optional) but good to have virtual environments
-        python -m venv env
+        python -m venv .venv
 
 ## activate the virtual environment from the below command for windows
         ene_venv\Scripts\activate
