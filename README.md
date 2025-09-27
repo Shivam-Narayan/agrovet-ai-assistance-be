@@ -1,1 +1,1 @@
-# agrovet-ai-assistance-be
+# agrovet-ai-assistance-backend django
