@@ -7,7 +7,7 @@
         python -m venv .venv
 
 ## activate the virtual environment from the below command for windows
-        ene_venv\Scripts\activate
+        .venv\Scripts\activate
     
 ## git clone the repo
         git clone "https://github.com/sourcebitsllc/Ascendum_demo.git"
