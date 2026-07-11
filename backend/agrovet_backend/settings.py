@@ -29,7 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'agrovet',
+    'apps.agrovet',
     'corsheaders',
     'rest_framework_simplejwt',
     'drf_yasg',
@@ -82,7 +82,7 @@ CORS_ALLOW_HEADERS = [
     'x-requested-with',
 ]
 
-ROOT_URLCONF = 'agrovet_be.urls'
+ROOT_URLCONF = 'agrovet_backend.urls'
 
 TEMPLATES = [
     {
@@ -99,7 +99,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'agrovet_be.wsgi.application'
+WSGI_APPLICATION = 'agrovet_backend.wsgi.application'
 
 # Database
 DB_ENGINE = os.getenv("DB_ENGINE")
@@ -109,17 +109,24 @@ DB_PASSWORD = os.getenv("DB_PASSWORD")
 DB_HOST = os.getenv("DB_HOST")
 DB_PORT = os.getenv("DB_PORT")
 
-DATABASES = {
-    'default': {
-        
-        'ENGINE': DB_ENGINE,
-        'NAME': DB_NAME,
-        'USER': DB_USER,
-        'PASSWORD': DB_PASSWORD,
-        'HOST': DB_HOST,
-        'PORT': DB_PORT,
+if DB_ENGINE and DB_NAME:
+    DATABASES = {
+        'default': {
+            'ENGINE': DB_ENGINE,
+            'NAME': DB_NAME,
+            'USER': DB_USER,
+            'PASSWORD': DB_PASSWORD,
+            'HOST': DB_HOST,
+            'PORT': DB_PORT,
+        }
     }
-}
+else:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
@@ -145,7 +152,7 @@ USE_TZ = True
 
 # Static files
 STATIC_URL = '/static/'
-STATIC_ROOT = 'C:/Users/pathalamm/Desktop/Agrovet_be/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 # Default primary key field type
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
