@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'apps.account',
     'apps.agrovet',
     'corsheaders',
     'rest_framework_simplejwt',
@@ -158,7 +159,7 @@ STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Set custom user model
-AUTH_USER_MODEL = 'agrovet.User'
+AUTH_USER_MODEL = 'account.User'
 
 
 
