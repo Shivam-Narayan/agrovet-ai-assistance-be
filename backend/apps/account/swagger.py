@@ -5,7 +5,6 @@ from .serializers import RegisterSerializer, LoginSerializer, ErrorResponseSeria
 
 # Swagger schema for register API
 REGISTER_SWAGGER = {
-    'method': 'post',
     'request_body': RegisterSerializer,
     'responses': {
         201: openapi.Response(
@@ -31,7 +30,6 @@ REGISTER_SWAGGER = {
 
 # Swagger schema for login API
 LOGIN_SWAGGER = {
-    'method': 'post',
     'request_body': LoginSerializer,
     'responses': {
         200: openapi.Response(
@@ -60,7 +58,6 @@ LOGIN_SWAGGER = {
 
 # Swagger schema for users API
 Activity_Log_SWAGGER = {
-    'method': 'get',
     'operation_description': (
         "Retrieve login and prediction activities only. "
         "Admin users can view activities of all users, while regular users can view only their own activities. "
