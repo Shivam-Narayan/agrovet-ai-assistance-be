@@ -5,7 +5,7 @@ services:
     image: mysql:8.0
     restart: always
     env_file:
-      - ./backend/.env
+      - .env
     environment:
       MYSQL_DATABASE: ${DB_NAME:-agrovet_be}
       MYSQL_ROOT_PASSWORD: ${DB_PASSWORD}
@@ -20,7 +20,7 @@ services:
       dockerfile: Dockerfile
     restart: always
     env_file:
-      - ./backend/.env
+      - .env
     environment:
       - DB_HOST=db
     volumes:

@@ -62,6 +62,41 @@ To access the Django Admin panel, create a superuser:
 ```bash
 docker-compose -p agrovetapp exec backend python manage.py createsuperuser
 ```
+*(Note: You can find default admin user credentials that you might want to create in `backend/admins.json`)*
+
+---
+
+## 💻 Local Development Setup (Without Docker)
+
+If you prefer to run the Django development server natively for debugging and faster iteration, follow these steps:
+
+1. **Start only the Database using Docker**:
+   Instead of spinning up the whole stack, you can spin up just the MySQL database container:
+   ```bash
+   docker-compose -p agrovetapp up -d db
+   ```
+
+2. **Set up a Virtual Environment**:
+   ```bash
+   cd backend
+   python -m venv .venv
+   source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
+   ```
+
+3. **Install Dependencies**:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. **Environment Variables**:
+   Ensure your `.env` file at the root of the project contains `DB_HOST=127.0.0.1` so that your local Django instance connects to the exposed Docker MySQL port.
+
+5. **Run the Setup Script**:
+   We provide a handy `run.py` script that will handle migrations and start the server for you:
+   ```bash
+   python run.py
+   ```
+   *Alternatively, you can manually run `python manage.py makemigrations`, `python manage.py migrate`, and `python manage.py runserver`.*
 
 ---
 

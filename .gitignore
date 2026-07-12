@@ -5,3 +5,7 @@ __pycache__/
 *.pyd
 .env
 *.code-workspace
+
+# Backend ignores
+**/migrations/
+backend/media/
