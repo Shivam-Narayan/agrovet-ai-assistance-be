@@ -43,11 +43,18 @@ DB_PORT=3306
 ```
 
 ### 4️⃣ Build and Run the Stack
-Run the following command to download the images, build the backend, and start the services:
+
+**To Run the App (Day-to-day use):**
+Simply start the containers in the background (detached mode):
+```bash
+docker-compose -p agrovetapp up -d
+```
+
+**To Re-build the App (First time, or after dependency changes):**
+If this is your first time, or if you've modified `requirements.txt` or `Dockerfile`, force a build before running:
 ```bash
 docker-compose -p agrovetapp up --build -d
 ```
-*(The `-d` flag runs the containers in the background).*
 
 ### 5️⃣ Database Migrations & Static Files
 On your very first run, you need to apply the database migrations and collect the static files so Nginx can serve the Swagger UI:
