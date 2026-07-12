@@ -80,7 +80,12 @@ If you prefer to run the Django development server natively for debugging and fa
    ```bash
    cd backend
    python -m venv .venv
-   source .venv/bin/activate  # On Windows use: .venv\Scripts\activate
+   
+   # On Windows (Command Prompt or PowerShell):
+   .venv\Scripts\activate
+   
+   # On macOS or Linux:
+   source .venv/bin/activate
    ```
 
 3. **Install Dependencies**:
