@@ -26,6 +26,7 @@ class User(AbstractUser):
     name = models.CharField(max_length=255)
     updated_at = models.DateTimeField(auto_now=True)
     is_admin = models.BooleanField(default=False)  # Explicit flag for business logic
+    is_email_verified = models.BooleanField(default=False)
     
     objects = CustomUserManager()
 
